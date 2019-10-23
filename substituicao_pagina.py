@@ -1,8 +1,8 @@
 import sys
 
 
-def print_results(quadros, fifo, lru, opt ):
-	print("%5d quadros, refs: FIFO: %5d PFs, LRU: %5d PFs, OPT: %5d PFs" % (quadros, fifo, lru, opt))
+def print_results(quadros, tam, fifo, lru, opt ):
+	print("%5d quadros, %7d refs: FIFO: %5d PFs, LRU: %5d PFs, OPT: %5d PFs" % (quadros, tam, fifo, lru, opt))
 
 def fifo(quadros, input_array):
 	memoria = []
@@ -137,7 +137,7 @@ def main():
 	for line in sys.stdin:
 		input_array.append(int(line))
 	
-	print_results(quadros,fifo(quadros,input_array),lru(quadros,input_array), opt(quadros, input_array))
+	print_results(quadros, len(input_array), fifo(quadros,input_array),lru(quadros,input_array), opt(quadros, input_array))
 
 
 
