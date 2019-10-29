@@ -107,8 +107,10 @@ def opt(quadros, input_array):
 		else:
 			maxi= -1
 			p = 0
-			for item in dic:
-				if (item in memoria):
+			# para cada item na memoria verifica qual demora mais para entrar na memoria novamente
+			for item in memoria:
+				# testa se item ainda entrará na memoria mais vezes
+				if (item in dic):
 					# seleciona o item que vai remover da memoria
 					if(len(dic[item]) > 0):
 						oc = dic[item][0]
@@ -117,7 +119,11 @@ def opt(quadros, input_array):
 					if( maxi < oc):
 						p = item
 						maxi = oc
-			# achidiona o novo item na memoria
+				#se item n vai aparecer mais na memoria, seleciona ele.
+				else:
+					p = item
+					break
+			# adiciona o novo item na memoria
 			memoria[memoria.index(p)] = pagina
 			# verifica se vai aparecer de novo e altera o arry se sim
 			if(len(dic[pagina]) > 0):
